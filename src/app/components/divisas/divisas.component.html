@@ -1,0 +1,28 @@
+<div class="tabla">
+    <table mat-table [dataSource]="datos.data" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre Divisa </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre_div}} </td>
+        </ng-container>
+
+        <!-- Cantidad Column -->
+        <ng-container matColumnDef="Abreviacion">
+            <th mat-header-cell *matHeaderCellDef> Abreviación </th>
+            <td mat-cell *matCellDef="let element"> {{element.iniciales_div}} </td>
+        </ng-container>
+
+        <!-- Unidades Column -->
+        <ng-container matColumnDef="Valor(USD)">
+            <th mat-header-cell *matHeaderCellDef> Valor(USD) </th>
+            <td mat-cell *matCellDef="let element"> {{element.vlr_referencia}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
