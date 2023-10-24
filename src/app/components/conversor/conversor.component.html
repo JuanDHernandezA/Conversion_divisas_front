@@ -1,9 +1,23 @@
-<div class="cont">
-    <p>conversor works!</p>
-</div>
 
-<div class="cont">
-    <p>conversor works!</p>
-</div>
+<div style="margin: 0 500px;">
+    <form class="example-form" (ngSubmit)="enviar()">
 
-<app-divisas></app-divisas>
+        <mat-form-field class="example-full-width" [(ngModel)]="moneda">
+          <mat-label>Cantidad de dinero</mat-label>
+          <input type="number" matInput placeholder="Dinero a Cambiar">
+        </mat-form-field>
+    
+        <select [(ngModel)]="divisa">
+            <option *ngFor="let div of datos.data" [value]="div.id">{{ div.nombre_div }}</option>
+          </select>
+
+        <section class="example-section">
+            <h4>Seleccciona las monedas a realizar el cambio:</h4>
+            <p *ngFor="let div of datos.data"><mat-checkbox formControlName={{div.id}}>{{div.nombre_div}}</mat-checkbox></p>
+          </section>
+          <button type="submit" >
+            Cambiar dinero
+          </button>
+    </form>
+</div>
+  
